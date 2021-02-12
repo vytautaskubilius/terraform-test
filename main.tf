@@ -48,8 +48,8 @@ module "bastion" {
 
   name             = "v-bastion-test"
   instance_type    = "t3.micro"
-  ami              = "ami-074db80f0dc9b5f40"
-  keypair_name     = "v-test"
+  ami              = "ami-02fe94dee086c0c37"
+  keypair_name     = ""
   user_data_base64 = data.template_cloudinit_config.cloud_init.rendered
 
   vpc_id                   = module.vpc_mgmt.vpc_id

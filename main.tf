@@ -44,9 +44,6 @@ module "vpc_mgmt_nacls" {
 }
 
 module "bastion" {
-  # When using these modules in your own templates, you will need to use a Git URL with a ref attribute that pins you
-  # to a specific version of the modules, such as the following example:
-  # source = "git::git@github.com:gruntwork-io/module-server.git//modules/single-server?ref=v1.0.8"
   source = "git::git@github.com:gruntwork-io/module-server.git//modules/single-server?ref=v0.10.0"
 
   name             = "v-bastion-test"
@@ -65,7 +62,7 @@ module "bastion" {
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
-# USE CLOUD-INIT SCRIPT TO INITIALIZE THE BASTION
+# USE CLOUD-INIT SCRIPT TO INITIALIZE THE INSTANCE
 # The data sources below use a template and a cloud-init config snippet to set up the system on first boot.
 # See the provider documentation: https://www.terraform.io/docs/providers/template/d/cloudinit_config.html
 # ---------------------------------------------------------------------------------------------------------------------

@@ -11,7 +11,7 @@ terraform {
 
 provider "aws" {
   region              = "us-east-1"
-  allowed_account_ids = ["473671374008"]
+  allowed_account_ids = var.allowed_account_ids
 }
 
 module "vpc_mgmt" {
@@ -46,7 +46,7 @@ module "vpc_mgmt_nacls" {
 module "bastion" {
   source = "git::git@github.com:gruntwork-io/module-server.git//modules/single-server?ref=v0.10.0"
 
-  name             = "v-bastion-test"
+  name             = var.name
   instance_type    = "t3.micro"
   ami              = "ami-02fe94dee086c0c37"
   keypair_name     = ""
